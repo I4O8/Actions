@@ -72,8 +72,8 @@ jobs:
       
     - name: set ruby
       run: |
-        sed -i '14s/.*/PKG_VERSION:=3.2.2/' package/feeds/packages/ruby/Makefile
-        cat package/feeds/packages/ruby/Makefile
+        sed -i '14s/.*/PKG_VERSION:=3.2.2/' ./package/feeds/packages/ruby/Makefile
+        cat ./package/feeds/packages/ruby/Makefile
         
     - name: Load custom configuration
       run: |
