@@ -72,6 +72,7 @@ jobs:
       
     - name: set ruby
       run: |
+        cd openwrt
         sed -i '14s/.*/PKG_VERSION:=3.2.2/' ./package/feeds/packages/ruby/Makefile
         cat ./package/feeds/packages/ruby/Makefile
         
