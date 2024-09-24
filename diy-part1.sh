@@ -16,5 +16,4 @@
 # Add a feed source
 echo 'src-git helloworld https://github.com/fw876/helloworld' >>feeds.conf.default
 git clone https://github.com/CHN-beta/rkp-ipid.git package/rkp-ipid
-git clone https://github.com/QC3284/luci-app-uugamebooster.git package/uugamebooster
 #echo 'src-git passwall https://github.com/xiaorouji/openwrt-passwall' >>feeds.conf.default
