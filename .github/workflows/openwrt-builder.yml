@@ -76,7 +76,9 @@ jobs:
         rm -rf package/feeds/packages/ruby/Makefile
         cp Makefile2 package/feeds/packages/ruby/Makefile
         mv config-6.6 target/linux/rockchip/
+        cp config-6.6 armv8/
         ls target/linux/rockchip/
+        ls target/linux/rockchip/armv8/
         
     - name: Load custom configuration
       run: |
