@@ -70,11 +70,13 @@ jobs:
     - name: Install feeds
       run: cd openwrt && ./scripts/feeds install -a
       
-    - name: set ruby
+    - name: set ruby and kernelconfig
       run: |
         cd openwrt
         rm -rf package/feeds/packages/ruby/Makefile
         cp Makefile2 package/feeds/packages/ruby/Makefile
+        mv config-6.6 target/linux/rockchip/
+        ls target/linux/rockchip/
         
     - name: Load custom configuration
       run: |
