@@ -17,7 +17,7 @@ on:
   workflow_dispatch:
 
 env:
-  REPO_URL: https://github.com/I4O8/immortalwrt
+  REPO_URL: https://github.com/immortalwrt/immortalwrt
   REPO_BRANCH: master
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: .config
@@ -78,6 +78,11 @@ jobs:
         chmod +x $DIY_P2_SH
         cd openwrt
         $GITHUB_WORKSPACE/$DIY_P2_SH
+
+    - name: set other options
+      run: |
+        [ -e $CONFIG2 ] && mv $CONFIG2 openwrt/package/feeds/packages/ruby/Makefile -f
+        
 
     - name: Download package
       id: package
