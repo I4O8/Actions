@@ -14,5 +14,6 @@
 #sed -i 's/^#\(.*helloworld\)/\1/' feeds.conf.default
 
 # Add a feed source
-git clone https://github.com/CHN-beta/rkp-ipid.git package/rkp-ipid
+echo 'src-git helloworld https://github.com/fw876/helloworld' >>feeds.conf.default
+git clone -b master https://github.com/vernesong/OpenClash.git --depth=1
 #echo 'src-git passwall https://github.com/xiaorouji/openwrt-passwall' >>feeds.conf.default
