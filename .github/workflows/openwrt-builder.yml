@@ -57,15 +57,15 @@ jobs:
         git clone -b master --single-branch --filter=blob:none https://github.com/immortalwrt/immortalwrt
 
     - name: Update feeds
-      run: cd immortalwrt && ./scripts/feeds update -a
+      run: cd /workdir/immortalwrt && ./scripts/feeds update -a
 
     - name: Install feeds
-      run: cd immortalwrt && ./scripts/feeds install -a
+      run: cd /workdir/immortalwrt && ./scripts/feeds install -a
 
     - name: Download package
       id: package
       run: |
-        cd openwrt
+        cd /workdir/immortalwrt
         make defconfig
         make download -j8
         find dl -size -1024c -exec ls -l {} \;
