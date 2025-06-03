@@ -17,13 +17,13 @@ on:
   workflow_dispatch:
 
 env:
-  REPO_URL: https://github.com/I4O8/immortalwrt
+  REPO_URL: https://github.com/coolsnowwolf/lede
   REPO_BRANCH: master
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: .config
   DIY_P1_SH: diy-part1.sh
   DIY_P2_SH: diy-part2.sh
-  UPLOAD_BIN_DIR: true
+  UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
   UPLOAD_RELEASE: true
   TZ: Asia/Shanghai
@@ -69,17 +69,7 @@ jobs:
 
     - name: Install feeds
       run: cd openwrt && ./scripts/feeds install -a
-      
-    - name: set ruby and kernelconfig
-      run: |
-        cd openwrt
-        rm -rf package/feeds/packages/ruby/Makefile
-        cp Makefile2 package/feeds/packages/ruby/Makefile
-        mv config-6.6 target/linux/rockchip/
-        cp target/linux/rockchip/config-6.6 target/linux/rockchip/armv8/
-        ls target/linux/rockchip/
-        ls target/linux/rockchip/armv8/
-        
+
     - name: Load custom configuration
       run: |
         [ -e files ] && mv files openwrt/files
